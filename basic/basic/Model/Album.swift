@@ -9,15 +9,17 @@
 import Foundation
 
 class Album {
-  let artist: String
-  let index: Int
-  let name: String
-  let previewURL: URL
+    let artist: String
+    let index: Int
+    let name: String
+    let album: String
+    let image: String
   
-  init(name: String, artist: String, previewURL: URL, index: Int) {
-    self.name = name
-    self.artist = artist
-    self.previewURL = previewURL
-    self.index = index
-  }
+    init(name: String, artist: String, album:String, image: String, index: Int) {
+        self.name = name
+        self.artist = artist
+        self.album = album
+        self.image = image
+        self.index = index
+      }
 }

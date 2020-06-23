@@ -17,6 +17,7 @@ class API {
     dataTask?.cancel()
 
     if var urlComponents = URLComponents(string: "https://itunes.apple.com/search") {
+        
       urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
 
       guard let url = urlComponents.url else {
@@ -67,11 +68,11 @@ class API {
     
     for trackDictionary in array {
       if let trackDictionary = trackDictionary as? JSONDictionary,
-        let previewURLString = trackDictionary["previewUrl"] as? String,
-        let previewURL = URL(string: previewURLString),
+        let imageURL = trackDictionary["artworkUrl100"] as? String,
         let name = trackDictionary["trackName"] as? String,
+        let albumName = trackDictionary["collectionName"] as? String,
         let artist = trackDictionary["artistName"] as? String {
-          album.append(Album(name: name, artist: artist, previewURL: previewURL, index: index))
+        album.append(Album(name: name, artist: artist, album: albumName, image: imageURL, index: index))
           index += 1
       } else {
         errorMessage += "Problem parsing trackDictionary\n"

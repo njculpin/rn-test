@@ -25,7 +25,7 @@ class BasicLabel: UILabel {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.numberOfLines = 0
         self.lineBreakMode = .byWordWrapping
-        self.textColor = .white
+        self.textColor = .black
     }
     
 }

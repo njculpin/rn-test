@@ -20,14 +20,23 @@ class HomeTableViewCell: UITableViewCell {
      */
     
     var artistLabel = BasicLabel()
+    var albumLabel = BasicLabel()
     var nameLabel = BasicLabel()
-    let previewImage: UIImageView = {
+    
+    var previewImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 10.0
-        imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
+    }()
+    
+    lazy var stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = NSLayoutConstraint.Axis.vertical
+        stack.distribution = UIStackView.Distribution.equalSpacing
+        stack.spacing = 0
+        stack.alignment = UIStackView.Alignment.leading
+        return stack
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -41,12 +50,13 @@ class HomeTableViewCell: UITableViewCell {
 
     //MARK: DRAW
     func setupViews() {
-        addSubview(artistLabel)
-        addSubview(nameLabel)
         addSubview(previewImage)
-        
-        
-        
+        addSubview(stackView)
+        stackView.addArrangedSubview(artistLabel)
+        stackView.addArrangedSubview(albumLabel)
+        stackView.addArrangedSubview(nameLabel)
+        previewImage.anchor(top:self.topAnchor, left:self.leftAnchor, bottom:self.bottomAnchor, right:stackView.leftAnchor, topConstant:0, leftConstant:0, bottomConstant:0, rightConstant:0, widthConstant:100, heightConstant:100)
+        stackView.anchor(top:self.topAnchor, left:previewImage.rightAnchor, bottom:self.bottomAnchor, right:self.rightAnchor, topConstant:4, leftConstant:4, bottomConstant:4, rightConstant:0, widthConstant:0, heightConstant:100)
     }
 
     //MARK: UPDATE
@@ -58,7 +68,10 @@ class HomeTableViewCell: UITableViewCell {
     }
 
     private func updateUI(){
-
+        artistLabel.text = album.artist
+        albumLabel.text = album.album
+        nameLabel.text = album.name
+        previewImage.loadImageUsingCacheWithUrlString(album.image)
     }
     
 }
