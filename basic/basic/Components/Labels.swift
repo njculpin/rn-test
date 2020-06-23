@@ -23,8 +23,8 @@ class BasicLabel: UILabel {
     
     func initializeLabel() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.numberOfLines = 0
-        self.lineBreakMode = .byWordWrapping
+        self.numberOfLines = 1
+        self.lineBreakMode = .byTruncatingTail
         self.textColor = .black
     }
     

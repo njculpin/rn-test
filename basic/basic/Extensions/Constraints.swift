@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIView {
+    
     public func fillSuperview() {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
@@ -57,5 +58,24 @@ extension UIView {
         anchors.forEach({$0.isActive = true})
         
         return anchors
+    }
+    
+    public func anchorCenterXToSuperview(constant: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let anchor = superview?.centerXAnchor {
+            centerXAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        }
+    }
+    
+    public func anchorCenterYToSuperview(constant: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let anchor = superview?.centerYAnchor {
+            centerYAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+        }
+    }
+    
+    public func anchorCenterSuperview() {
+        anchorCenterXToSuperview()
+        anchorCenterYToSuperview()
     }
 }

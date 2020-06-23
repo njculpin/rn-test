@@ -32,6 +32,7 @@ extension UIImageView {
                 return
             }
             
+            // on the main thread create a uiimage and cache it with NSCache
             DispatchQueue.main.async(execute: {
                 
                 if let downloadedImage = UIImage(data: data!) {

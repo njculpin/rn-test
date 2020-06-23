@@ -1,14 +1,24 @@
 //
-//  HomeTableViewCell.swift
+//  DetailViewController.swift
 //  basic
 //
-//  Created by Nick Culpin on 6/22/20.
+//  Created by Nick Culpin on 6/23/20.
 //  Copyright © 2020 basic. All rights reserved.
 //
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell {
+class DetailViewController: UIViewController {
+    
+    // the detail is nearly identical to the table view cell itself
+    // todo: redesign the visual look and feel
+    // todo: retrieve the audio file and develop a player
+    
+    var album: Album! {
+        didSet {
+            self.updateUI()
+        }
+    }
     
     var artistLabel = BasicLabel()
     var albumLabel = BasicLabel()
@@ -23,7 +33,7 @@ class HomeTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    lazy var stackView: UIStackView = {
+    var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = NSLayoutConstraint.Axis.vertical
         stack.distribution = UIStackView.Distribution.equalSpacing
@@ -32,38 +42,28 @@ class HomeTableViewCell: UITableViewCell {
         return stack
     }()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .white
+        self.title = album?.name
+        
         setupViews()
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    //MARK: DRAW
+    
     func setupViews() {
-        addSubview(previewImage)
-        addSubview(stackView)
+        self.view.addSubview(previewImage)
+        self.view.addSubview(stackView)
         stackView.addArrangedSubview(artistLabel)
         stackView.addArrangedSubview(albumLabel)
         stackView.addArrangedSubview(nameLabel)
-        previewImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 4).isActive = true
+        previewImage.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 4).isActive = true
         previewImage.rightAnchor.constraint(equalTo: stackView.leftAnchor, constant: 4).isActive = true
         previewImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
         previewImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
         previewImage.anchorCenterYToSuperview()
         stackView.leftAnchor.constraint(equalTo: previewImage.rightAnchor, constant: -4).isActive = true
-        stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 4).isActive = true
+        stackView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 4).isActive = true
         stackView.anchorCenterYToSuperview()
-    }
-
-    //MARK: UPDATE
-    var album: Album! {
-        didSet {
-            self.updateUI()
-            self.setNeedsLayout()
-        }
     }
 
     private func updateUI(){

@@ -1,3 +1,8 @@
+/*
+ 
+ This was left in for reference
+ Commented out because we are not using SwiftUI in this project
+ 
 //
 //  SceneDelegate.swift
 //  basic
@@ -13,10 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = HomeViewController()
-        window?.makeKeyAndVisible()
+        if let windowScene = scene as? UIWindowScene {
+
+            
+            let window = UIWindow(windowScene: windowScene)
+            let home = HomeViewController()
+
+            let navigation = UINavigationController(rootViewController: home)
+            window.rootViewController = navigation
+
+            self.window = window
+            window.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -53,3 +66,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+*/
