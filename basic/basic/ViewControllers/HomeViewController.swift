@@ -19,7 +19,7 @@ class HomeViewController:
     var cellId = "listCell"
     var albums = [Album]()
     
-    private var searchBar: UISearchBar = UISearchBar()
+    var searchBar: UISearchBar = UISearchBar()
     
     // register a tap recognizer to help the user dismiss
     // the keyboard
@@ -52,6 +52,10 @@ class HomeViewController:
         searchBar.sizeToFit()
         searchBar.isTranslucent = false
         
+        // accessibilty label is required for testing
+        searchBar.isAccessibilityElement = true
+        searchBar.accessibilityIdentifier = "searchBar"
+
         // delegate
         searchBar.delegate = self
         

@@ -37,8 +37,8 @@ class DetailViewController: UIViewController {
         let stack = UIStackView()
         stack.axis = NSLayoutConstraint.Axis.vertical
         stack.distribution = UIStackView.Distribution.equalSpacing
-        stack.spacing = 0
-        stack.alignment = UIStackView.Alignment.leading
+        stack.spacing = 4
+        stack.alignment = UIStackView.Alignment.center
         return stack
     }()
 
@@ -51,19 +51,18 @@ class DetailViewController: UIViewController {
     }
     
     func setupViews() {
-        self.view.addSubview(previewImage)
         self.view.addSubview(stackView)
+        stackView.addArrangedSubview(previewImage)
         stackView.addArrangedSubview(artistLabel)
         stackView.addArrangedSubview(albumLabel)
         stackView.addArrangedSubview(nameLabel)
-        previewImage.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 4).isActive = true
-        previewImage.rightAnchor.constraint(equalTo: stackView.leftAnchor, constant: 4).isActive = true
-        previewImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        previewImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        previewImage.anchorCenterYToSuperview()
-        stackView.leftAnchor.constraint(equalTo: previewImage.rightAnchor, constant: -4).isActive = true
+        
+        previewImage.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        previewImage.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        stackView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 4).isActive = true
         stackView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 4).isActive = true
         stackView.anchorCenterYToSuperview()
+
     }
 
     private func updateUI(){
