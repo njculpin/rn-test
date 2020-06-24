@@ -93,12 +93,3 @@ target 'basic' do
     flipper_post_install(installer)
   end
 end
-
-target 'basic-tvOS' do
-  # Pods for basic-tvOS
-
-  target 'basic-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-end
