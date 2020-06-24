@@ -10,16 +10,38 @@ import XCTest
 @testable import basic
 
 class basicTests: XCTestCase {
+    
+    var session: URLSession!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        session = URLSession(configuration: .default)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        session = nil
     }
-
     
+      func testITunes() {
+        let url = URL(string: "https://itunes.apple.com/search?media=music&entity=song&term=abba")
+
+        let promise = expectation(description: "Completion handler invoked")
+        var statusCode: Int?
+        var responseError: Error?
+
+        let dataTask = session.dataTask(with: url!) { data, response, error in
+          statusCode = (response as? HTTPURLResponse)?.statusCode
+          responseError = error
+          promise.fulfill()
+        }
+        dataTask.resume()
+
+        wait(for: [promise], timeout: 5)
+        
+        XCTAssertNil(responseError)
+        XCTAssertEqual(statusCode, 200)
+      }
+
+
     func testAPISearch() throws {
         let api = API()
         api.download(searchTerm: "Jack Johnson") { results, errorMessage in
