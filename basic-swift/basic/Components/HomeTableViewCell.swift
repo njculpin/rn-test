@@ -49,11 +49,12 @@ class HomeTableViewCell: UITableViewCell {
         stackView.addArrangedSubview(albumLabel)
         stackView.addArrangedSubview(nameLabel)
         previewImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 4).isActive = true
-        previewImage.rightAnchor.constraint(equalTo: stackView.leftAnchor, constant: 4).isActive = true
+        previewImage.rightAnchor.constraint(equalTo: stackView.leftAnchor, constant: 8).isActive = true
         previewImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
         previewImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
         previewImage.anchorCenterYToSuperview()
-        stackView.leftAnchor.constraint(equalTo: previewImage.rightAnchor, constant: -4).isActive = true
+        
+        stackView.leftAnchor.constraint(equalTo: previewImage.rightAnchor, constant: 8).isActive = true
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 4).isActive = true
         stackView.anchorCenterYToSuperview()
         // accessibility
