@@ -56,6 +56,9 @@ class HomeTableViewCell: UITableViewCell {
         stackView.leftAnchor.constraint(equalTo: previewImage.rightAnchor, constant: -4).isActive = true
         stackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 4).isActive = true
         stackView.anchorCenterYToSuperview()
+        // accessibility
+        nameLabel.isAccessibilityElement = true
+        nameLabel.accessibilityIdentifier = "list-cell-label"
     }
 
     //MARK: UPDATE

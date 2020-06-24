@@ -20,7 +20,7 @@ class basicTests: XCTestCase {
     }
 
     
-    func testAPIDownload() throws {
+    func testAPISearch() throws {
         let api = API()
         api.download(searchTerm: "Jack Johnson") { results, errorMessage in
             XCTAssert(errorMessage != "", errorMessage)

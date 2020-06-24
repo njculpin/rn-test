@@ -62,7 +62,10 @@ class DetailViewController: UIViewController {
         stackView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 4).isActive = true
         stackView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 4).isActive = true
         stackView.anchorCenterYToSuperview()
-
+        
+        nameLabel.isAccessibilityElement = true
+        nameLabel.accessibilityIdentifier = "detail-name-label"
+        
     }
 
     private func updateUI(){

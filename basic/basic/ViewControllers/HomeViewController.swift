@@ -54,7 +54,7 @@ class HomeViewController:
         
         // accessibilty label is required for testing
         searchBar.isAccessibilityElement = true
-        searchBar.accessibilityIdentifier = "searchBar"
+        searchBar.accessibilityIdentifier = "search-bar"
 
         // delegate
         searchBar.delegate = self
@@ -65,13 +65,21 @@ class HomeViewController:
        
     func loadTableView(){
         view.addSubview(listTableView)
+        
+        // accessibilty label is required for testing
+        listTableView.isAccessibilityElement = true
+        listTableView.accessibilityIdentifier = "list-table"
+        
         // register delegate / datasource
         listTableView.delegate = self
         listTableView.dataSource = self
+        
         // register cells
         listTableView.register(HomeTableViewCell.self, forCellReuseIdentifier: cellId)
+        
         // Constraints.swift is a helper file to quickly bind constraints for an element
         listTableView.anchor(top:self.searchBar.bottomAnchor, left: self.view.leftAnchor, bottom: self.view.bottomAnchor, right: self.view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        
         // since we are moving into a detail view, we dont neeed to allow multiple selections
         listTableView.allowsMultipleSelection = false
     }
@@ -158,11 +166,17 @@ class HomeViewController:
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let album = albums[indexPath.row] as Album
         let cell = listTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! HomeTableViewCell
         cell.album = album
         // prevent the style highlighting of the cell
         cell.selectionStyle = .none
+        
+        // accessibility
+        cell.isAccessibilityElement = true
+        cell.accessibilityIdentifier = ("\(indexPath.row)")
+        
         return cell
     }
     
