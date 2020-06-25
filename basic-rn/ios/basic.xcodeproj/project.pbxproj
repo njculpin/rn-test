@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AB6835F24A404BC000F960A /* APIBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6835E24A404BC000F960A /* APIBridge.swift */; };
+		1AB6836124A404C8000F960A /* APIBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AB6836024A404C8000F960A /* APIBridge.m */; };
 		1ACF9A9124A152D00040F763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACF9A9024A152D00040F763 /* AppDelegate.swift */; };
 		1ACF9A9524A152D00040F763 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACF9A9424A152D00040F763 /* HomeViewController.swift */; };
 		1ACF9A9B24A152D00040F763 /* basic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1ACF9A9924A152D00040F763 /* basic.xcdatamodeld */; };
@@ -45,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		1AB6835724A3EA93000F960A /* basic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "basic-Bridging-Header.h"; sourceTree = "<group>"; };
+		1AB6835E24A404BC000F960A /* APIBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBridge.swift; sourceTree = "<group>"; };
+		1AB6836024A404C8000F960A /* APIBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIBridge.m; sourceTree = "<group>"; };
 		1ACF9A8D24A152D00040F763 /* basic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = basic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ACF9A9024A152D00040F763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ACF9A9424A152D00040F763 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				1ACF9AC924A160DF0040F763 /* API.swift */,
+				1AB6835E24A404BC000F960A /* APIBridge.swift */,
+				1AB6836024A404C8000F960A /* APIBridge.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -404,9 +410,11 @@
 			files = (
 				1ACF9AD624A27C3D0040F763 /* DetailViewController.swift in Sources */,
 				1ACF9AD424A271F50040F763 /* ImageView.swift in Sources */,
+				1AB6836124A404C8000F960A /* APIBridge.m in Sources */,
 				1ACF9A9B24A152D00040F763 /* basic.xcdatamodeld in Sources */,
 				1ACF9AC424A1589E0040F763 /* HomeTableViewCell.swift in Sources */,
 				1ACF9ACE24A267F20040F763 /* Labels.swift in Sources */,
+				1AB6835F24A404BC000F960A /* APIBridge.swift in Sources */,
 				1ACF9A9524A152D00040F763 /* HomeViewController.swift in Sources */,
 				1ACF9AD124A26A380040F763 /* Constraints.swift in Sources */,
 				1ACF9ADA24A2910B0040F763 /* SceneDelegate.swift in Sources */,
